@@ -36,11 +36,6 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self showMain];
     [self.window makeKeyAndVisible];
-    
-    NSString *className = @"KSCrashDeadlockMonitor";
-    Class cls = NSClassFromString(className);
-    NSLog(@"cls:%@", cls);
-    
     return YES;
 }
 - (void)applicationWillResignActive:(UIApplication *)application {

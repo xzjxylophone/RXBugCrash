@@ -3,6 +3,7 @@ platform :ios, '8.0'
 
 # 当使用use_frameworks!的时候，出现Class XXXX is implemented in both  xx. One of the two will be used. Which one is undefined.
 # 当不使用use_frameworks!的时候，直接编译报错：duplication class XXXX
+# https://www.jianshu.com/p/38fc402dac6c
 use_frameworks!
 
 
@@ -10,11 +11,7 @@ use_frameworks!
 target 'RXBugCrashDemo' do
 
 pod 'KSCrash'
-#pod 'Bugtags', '3.1.0'
-
-
-# duplicate
-# pod 'Bugtags', '3.1.1'
+#pod 'Bugtags'
 
 
 inhibit_all_warnings!

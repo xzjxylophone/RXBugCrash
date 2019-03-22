@@ -7,6 +7,7 @@
 //
 
 #import "MainViewController.h"
+#import "RXCrashTestViewController.h"
 // https://github.com/kstenerud/KSCrash
 // https://www.jianshu.com/p/34b98060965b
 
@@ -25,6 +26,20 @@
 // https://blog.csdn.net/feixiang_song/article/details/69224220
 
 
+
+/*
+ 
+ Exception Codes: KERN_PROTECTION_FAILURE at 0x0000000000000002
+ Attempted to dereference garbage pointer 0x2.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ **/
 
 @interface MainViewController ()
 
@@ -45,10 +60,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-//    self.view.backgroundColor = [UIColor redColor];
-    
-    
     
     self.functionItems = @[@"BugTags", @"KSCrash"];
     
@@ -110,6 +121,8 @@
 #pragma mark - Private
 - (void)gotoExampleVCWithName:(NSString *)name
 {
+    RXCrashTestViewController *vc = [[RXCrashTestViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

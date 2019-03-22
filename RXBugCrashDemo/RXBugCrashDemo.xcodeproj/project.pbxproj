@@ -12,6 +12,9 @@
 		5821DB522243BED2002AA122 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5821DB512243BED2002AA122 /* Assets.xcassets */; };
 		5821DB582243BED2002AA122 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5821DB572243BED2002AA122 /* main.m */; };
 		5821DB602243BF65002AA122 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5821DB5E2243BF65002AA122 /* MainViewController.m */; };
+		58880591224486CB00A76039 /* RXCrashTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5888058F224486CB00A76039 /* RXCrashTestViewController.m */; };
+		58880592224486CB00A76039 /* RXCrashTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58880590224486CB00A76039 /* RXCrashTestViewController.xib */; };
+		58880594224486D500A76039 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58880593224486D500A76039 /* MainViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,10 @@
 		5821DB572243BED2002AA122 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5821DB5E2243BF65002AA122 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		5821DB5F2243BF65002AA122 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		5888058E224486CB00A76039 /* RXCrashTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RXCrashTestViewController.h; sourceTree = "<group>"; };
+		5888058F224486CB00A76039 /* RXCrashTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RXCrashTestViewController.m; sourceTree = "<group>"; };
+		58880590224486CB00A76039 /* RXCrashTestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RXCrashTestViewController.xib; sourceTree = "<group>"; };
+		58880593224486D500A76039 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		8F62B254AB2B0C63FC868B16 /* Pods-RXBugCrashDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RXBugCrashDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RXBugCrashDemo/Pods-RXBugCrashDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		EF8BBE52B8975AE0C5F35FFD /* Pods_RXBugCrashDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RXBugCrashDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -71,11 +78,15 @@
 			children = (
 				5821DB5F2243BF65002AA122 /* MainViewController.h */,
 				5821DB5E2243BF65002AA122 /* MainViewController.m */,
+				58880593224486D500A76039 /* MainViewController.xib */,
 				5821DB482243BECF002AA122 /* AppDelegate.h */,
 				5821DB492243BECF002AA122 /* AppDelegate.m */,
 				5821DB512243BED2002AA122 /* Assets.xcassets */,
 				5821DB562243BED2002AA122 /* Info.plist */,
 				5821DB572243BED2002AA122 /* main.m */,
+				5888058E224486CB00A76039 /* RXCrashTestViewController.h */,
+				5888058F224486CB00A76039 /* RXCrashTestViewController.m */,
+				58880590224486CB00A76039 /* RXCrashTestViewController.xib */,
 			);
 			path = RXBugCrashDemo;
 			sourceTree = "<group>";
@@ -148,6 +159,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58880592224486CB00A76039 /* RXCrashTestViewController.xib in Resources */,
+				58880594224486D500A76039 /* MainViewController.xib in Resources */,
 				5821DB522243BED2002AA122 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -206,6 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58880591224486CB00A76039 /* RXCrashTestViewController.m in Sources */,
 				5821DB582243BED2002AA122 /* main.m in Sources */,
 				5821DB602243BF65002AA122 /* MainViewController.m in Sources */,
 				5821DB4A2243BECF002AA122 /* AppDelegate.m in Sources */,
