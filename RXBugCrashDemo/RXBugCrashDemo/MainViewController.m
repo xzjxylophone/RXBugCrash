@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 #import "RXCrashTestViewController.h"
+#import "RXFileUtil.h"
 // https://github.com/kstenerud/KSCrash
 // https://www.jianshu.com/p/34b98060965b
 
@@ -26,6 +27,7 @@
 // https://blog.csdn.net/feixiang_song/article/details/69224220
 
 
+// https://nianxi.net/ios/ios-crash-reporter.html
 
 /*
  
@@ -61,6 +63,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+
     self.functionItems = @[@"BugTags", @"KSCrash"];
     
     // 数组倒叙
@@ -84,6 +87,7 @@
     
     [self performSelector:@selector(gotoExampleVCWithName:) withObject:object afterDelay:1];
     
+    [RXFileUtil test];
     
     
 }

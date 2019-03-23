@@ -7,7 +7,6 @@
 //
 
 #import "RXCrashTestViewController.h"
-
 @interface RXCrashTestViewController ()
 
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
@@ -22,13 +21,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-    self.functionItems = @[@"BugTags", @"KSCrash"];
+    self.functionItems = @[@"array_add_nil", @"KSCrash"];
         
-    NSString *object = self.functionItems.firstObject;
+//    NSString *object = self.functionItems.firstObject;
    
     
-    [self performSelector:@selector(gotoExampleVCWithName:) withObject:object afterDelay:1];
+//    [self performSelector:@selector(gotoExampleVCWithName:) withObject:object afterDelay:1];
     
 }
 
@@ -68,10 +66,18 @@
 #pragma mark - Private
 - (void)gotoExampleVCWithName:(NSString *)name
 {
+    NSString *string = [NSString stringWithFormat:@"_test_%@", name];
+    SEL sel = NSSelectorFromString(string);
+    [self performSelector:sel];
 }
 
 
 #pragma mark - Crash Test
+- (void)_test_array_add_nil {
+    id value = nil;
+    NSMutableArray *ary = [NSMutableArray new];
+    [ary addObject:value];
+}
 // Attempted to dereference garbage pointer 0x4b70706d.
 
 

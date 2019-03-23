@@ -1,4 +1,5 @@
 PODS:
+  - fishhook (0.2)
   - KSCrash (1.15.19):
     - KSCrash/Installations (= 1.15.19)
   - KSCrash/Installations (1.15.19):
@@ -64,15 +65,18 @@ PODS:
     - KSCrash/Recording
 
 DEPENDENCIES:
+  - fishhook
   - KSCrash
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - fishhook
     - KSCrash
 
 SPEC CHECKSUMS:
+  fishhook: ea19933abfe8f2f52c55fd8b6e2718467d3ebc89
   KSCrash: 49855f7867f7d456905c241640a203f53588497d
 
-PODFILE CHECKSUM: fe815df79e474c0aaa6c9058c0e0ea5cdf24113a
+PODFILE CHECKSUM: d9977410e9097c9d0754fff56248a2e0c3591adb
 
 COCOAPODS: 1.5.3

@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
+#import "RXKSCrashStrategy.h"
 @interface AppDelegate ()
 @property (nonatomic, strong) UINavigationController *mainNC;
 
@@ -36,6 +37,9 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self showMain];
     [self.window makeKeyAndVisible];
+    
+    
+    [RXKSCrashStrategy setup];
     return YES;
 }
 - (void)applicationWillResignActive:(UIApplication *)application {

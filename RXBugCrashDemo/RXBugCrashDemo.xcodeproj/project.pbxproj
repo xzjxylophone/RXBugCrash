@@ -15,6 +15,9 @@
 		58880591224486CB00A76039 /* RXCrashTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5888058F224486CB00A76039 /* RXCrashTestViewController.m */; };
 		58880592224486CB00A76039 /* RXCrashTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58880590224486CB00A76039 /* RXCrashTestViewController.xib */; };
 		58880594224486D500A76039 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58880593224486D500A76039 /* MainViewController.xib */; };
+		588805982244EC3900A76039 /* RXKSCrashStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 588805972244EC3900A76039 /* RXKSCrashStrategy.m */; };
+		5888059F224517CE00A76039 /* RXFileUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 5888059E224517CE00A76039 /* RXFileUtil.m */; };
+		588805A322451B5000A76039 /* RXFileSearchObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 588805A222451B5000A76039 /* RXFileSearchObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +34,12 @@
 		5888058F224486CB00A76039 /* RXCrashTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RXCrashTestViewController.m; sourceTree = "<group>"; };
 		58880590224486CB00A76039 /* RXCrashTestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RXCrashTestViewController.xib; sourceTree = "<group>"; };
 		58880593224486D500A76039 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		588805962244EC3900A76039 /* RXKSCrashStrategy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RXKSCrashStrategy.h; sourceTree = "<group>"; };
+		588805972244EC3900A76039 /* RXKSCrashStrategy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RXKSCrashStrategy.m; sourceTree = "<group>"; };
+		5888059D224517CE00A76039 /* RXFileUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RXFileUtil.h; sourceTree = "<group>"; };
+		5888059E224517CE00A76039 /* RXFileUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RXFileUtil.m; sourceTree = "<group>"; };
+		588805A122451B5000A76039 /* RXFileSearchObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RXFileSearchObject.h; sourceTree = "<group>"; };
+		588805A222451B5000A76039 /* RXFileSearchObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RXFileSearchObject.m; sourceTree = "<group>"; };
 		8F62B254AB2B0C63FC868B16 /* Pods-RXBugCrashDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RXBugCrashDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RXBugCrashDemo/Pods-RXBugCrashDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		EF8BBE52B8975AE0C5F35FFD /* Pods_RXBugCrashDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RXBugCrashDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -76,6 +85,8 @@
 		5821DB472243BECF002AA122 /* RXBugCrashDemo */ = {
 			isa = PBXGroup;
 			children = (
+				5888059C224517C600A76039 /* Util */,
+				588805952244EC2100A76039 /* Service */,
 				5821DB5F2243BF65002AA122 /* MainViewController.h */,
 				5821DB5E2243BF65002AA122 /* MainViewController.m */,
 				58880593224486D500A76039 /* MainViewController.xib */,
@@ -89,6 +100,34 @@
 				58880590224486CB00A76039 /* RXCrashTestViewController.xib */,
 			);
 			path = RXBugCrashDemo;
+			sourceTree = "<group>";
+		};
+		588805952244EC2100A76039 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				588805962244EC3900A76039 /* RXKSCrashStrategy.h */,
+				588805972244EC3900A76039 /* RXKSCrashStrategy.m */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		5888059C224517C600A76039 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				588805A022451B3A00A76039 /* File */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		588805A022451B3A00A76039 /* File */ = {
+			isa = PBXGroup;
+			children = (
+				5888059D224517CE00A76039 /* RXFileUtil.h */,
+				5888059E224517CE00A76039 /* RXFileUtil.m */,
+				588805A122451B5000A76039 /* RXFileSearchObject.h */,
+				588805A222451B5000A76039 /* RXFileSearchObject.m */,
+			);
+			path = File;
 			sourceTree = "<group>";
 		};
 		7C55736955D76B8B2111909C /* Pods */ = {
@@ -200,12 +239,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-RXBugCrashDemo/Pods-RXBugCrashDemo-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/KSCrash/KSCrash.framework",
+				"${BUILT_PRODUCTS_DIR}/fishhook/fishhook.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KSCrash.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/fishhook.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -221,6 +262,9 @@
 			files = (
 				58880591224486CB00A76039 /* RXCrashTestViewController.m in Sources */,
 				5821DB582243BED2002AA122 /* main.m in Sources */,
+				588805982244EC3900A76039 /* RXKSCrashStrategy.m in Sources */,
+				5888059F224517CE00A76039 /* RXFileUtil.m in Sources */,
+				588805A322451B5000A76039 /* RXFileSearchObject.m in Sources */,
 				5821DB602243BF65002AA122 /* MainViewController.m in Sources */,
 				5821DB4A2243BECF002AA122 /* AppDelegate.m in Sources */,
 			);
