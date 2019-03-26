@@ -11,6 +11,10 @@
 #import "KSCrashInstallationEmail.h"
 #import "KSCrashInstallation+Alert.h"
 #import "KSCrash.h"
+
+static void onCrashCallback(const KSCrashReportWriter* writer) {
+    NSLog(@"111111");
+}
 @implementation RXKSCrashStrategy
 + (KSCrashInstallation *) makeEmailInstallation
 {
@@ -48,6 +52,7 @@
 + (void)setup_github {
     KSCrashInstallationEmail* installation = [KSCrashInstallationEmail sharedInstance];
     installation.recipients = @[@"xzjxylophone@126.com"];
+    installation.onCrash = onCrashCallback;
     [installation install];
     [KSCrash sharedInstance].deleteBehaviorAfterSendAll = KSCDeleteNever;
     [installation sendAllReportsWithCompletion:^(NSArray* reports, BOOL completed, NSError* error) {

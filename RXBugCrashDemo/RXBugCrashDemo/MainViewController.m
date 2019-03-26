@@ -63,6 +63,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    
+    dispatch_queue_set_specific(dispatch_get_main_queue(), "123", @"main", NULL);
+    //放到同步队列中 全局并发队列中
+    dispatch_sync(dispatch_get_global_queue(0, 0), ^{
+        NSLog(@"main thread: %d", [NSThread isMainThread]);
+        // 判断是否是主队列
+        void *value = dispatch_get_specific("123");//返回与当前分派队列关联的键的值。
+        NSLog(@"main queue: %d", value != NULL);
+    });
 
     self.functionItems = @[@"BugTags", @"KSCrash"];
     

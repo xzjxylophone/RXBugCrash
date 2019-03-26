@@ -10,34 +10,30 @@
 // https://www.cnblogs.com/gujiande/p/9449227.html
 @implementation RXFileUtil
 
-
-+ (void)test {
-    
-    
++ (void)_testAll {
     // NSApplicationScriptsDirectory NSTrashDirectory 有available问题
     NSArray *ary1 = @[@(NSApplicationDirectory), @(NSDemoApplicationDirectory), @(NSDeveloperApplicationDirectory),
-                     @(NSAdminApplicationDirectory), @(NSLibraryDirectory), @(NSDeveloperDirectory),
-                     @(NSUserDirectory), @(NSDocumentationDirectory), @(NSDocumentDirectory),
-                     @(NSCoreServiceDirectory), @(NSAutosavedInformationDirectory), @(NSDesktopDirectory),
-                     @(NSCachesDirectory), @(NSApplicationSupportDirectory), @(NSDownloadsDirectory),
-                     @(NSInputMethodsDirectory), @(NSMoviesDirectory), @(NSMusicDirectory),
-                     @(NSPicturesDirectory), @(NSPrinterDescriptionDirectory), @(NSSharedPublicDirectory),
-                     @(NSPreferencePanesDirectory), @(NSItemReplacementDirectory), @(NSAllApplicationsDirectory),
-                     @(NSAllLibrariesDirectory)];
+                      @(NSAdminApplicationDirectory), @(NSLibraryDirectory), @(NSDeveloperDirectory),
+                      @(NSUserDirectory), @(NSDocumentationDirectory), @(NSDocumentDirectory),
+                      @(NSCoreServiceDirectory), @(NSAutosavedInformationDirectory), @(NSDesktopDirectory),
+                      @(NSCachesDirectory), @(NSApplicationSupportDirectory), @(NSDownloadsDirectory),
+                      @(NSInputMethodsDirectory), @(NSMoviesDirectory), @(NSMusicDirectory),
+                      @(NSPicturesDirectory), @(NSPrinterDescriptionDirectory), @(NSSharedPublicDirectory),
+                      @(NSPreferencePanesDirectory), @(NSItemReplacementDirectory), @(NSAllApplicationsDirectory),
+                      @(NSAllLibrariesDirectory)];
     
     NSArray *ary2 = @[@"NSApplicationDirectory", @"NSDemoApplicationDirectory", @"NSDeveloperApplicationDirectory",
-                     @"NSAdminApplicationDirectory", @"NSLibraryDirectory", @"NSDeveloperDirectory",
-                     @"NSUserDirectory", @"NSDocumentationDirectory", @"NSDocumentDirectory",
-                     @"NSCoreServiceDirectory", @"NSAutosavedInformationDirectory", @"NSDesktopDirectory",
-                     @"NSCachesDirectory", @"NSApplicationSupportDirectory", @"NSDownloadsDirectory",
-                     @"NSInputMethodsDirectory", @"NSMoviesDirectory", @"NSMusicDirectory",
-                     @"NSPicturesDirectory", @"NSPrinterDescriptionDirectory", @"NSSharedPublicDirectory",
-                     @"NSPreferencePanesDirectory", @"NSItemReplacementDirectory", @"NSAllApplicationsDirectory",
-                     @"NSAllLibrariesDirectory"];
+                      @"NSAdminApplicationDirectory", @"NSLibraryDirectory", @"NSDeveloperDirectory",
+                      @"NSUserDirectory", @"NSDocumentationDirectory", @"NSDocumentDirectory",
+                      @"NSCoreServiceDirectory", @"NSAutosavedInformationDirectory", @"NSDesktopDirectory",
+                      @"NSCachesDirectory", @"NSApplicationSupportDirectory", @"NSDownloadsDirectory",
+                      @"NSInputMethodsDirectory", @"NSMoviesDirectory", @"NSMusicDirectory",
+                      @"NSPicturesDirectory", @"NSPrinterDescriptionDirectory", @"NSSharedPublicDirectory",
+                      @"NSPreferencePanesDirectory", @"NSItemReplacementDirectory", @"NSAllApplicationsDirectory",
+                      @"NSAllLibrariesDirectory"];
     
     NSArray *ary3 = @[@(NSUserDomainMask), @(NSLocalDomainMask), @(NSNetworkDomainMask), @(NSSystemDomainMask), @(NSAllDomainsMask)];
     NSArray *ary4 = @[@"NSUserDomainMask", @"NSLocalDomainMask", @"NSNetworkDomainMask", @"NSSystemDomainMask", @"NSAllDomainsMask"];
-
     for (NSInteger i = 0; i < ary1.count; i++) {
         NSSearchPathDirectory tmp = [ary1[i] integerValue];
         NSMutableDictionary *allDic = [NSMutableDictionary new];
@@ -69,8 +65,48 @@
         }
         NSLog(@"%@ local and system is %@", ary2[i], equal ? @"YES": @"NO");
         NSLog(@"allDic:%@", allDic);
-        
     }
+}
+
++ (void)test_cache {
+    NSArray *dirArray = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSLog(@"dirArray:%@", dirArray);
+    if (dirArray == 0) {
+        return;
+    }
+    for (NSString *dirName in dirArray) {
+        [self showAllFileName:dirName];
+    }
+
+}
+
++ (void)showAllFileName:(NSString *)filePath {
+    NSFileManager *fm = [NSFileManager defaultManager];
+    BOOL isDir = NO;
+    BOOL isExist = [fm fileExistsAtPath:filePath isDirectory:&isDir];
+    if (isExist) {
+        if (isDir) {
+//            NSLog(@"%@ is a Dir", filePath);
+            NSArray *subArray = [fm contentsOfDirectoryAtPath:filePath error:nil];
+            for (NSString *str in subArray) {
+                NSString *subPath  = [filePath stringByAppendingPathComponent:str];
+                [self showAllFileName:subPath];
+            }
+        } else {
+            NSLog(@"%@ is a file ----------------------------------", filePath);
+            
+            NSData *data = [NSData dataWithContentsOfFile:filePath];
+            NSLog(@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+        }
+    } else {
+//        NSLog(@"%@ is not exist", filePath);
+    }
+}
+
++ (void)test {
+    
+    [self test_cache];
+    
     
 }
 @end
